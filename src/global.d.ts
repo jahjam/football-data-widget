@@ -21,6 +21,16 @@ declare interface Contestant {
     country:      TournamentCalendar;
 }
 
+declare type Team = {
+    contestant: Contestant | undefined,
+    stats: Stat[],
+    goals: number,
+}
+
+declare type CurrentMatch = {
+    match: Competition,
+}
+
 declare interface TournamentCalendar {
     id:   string;
     name: string;
