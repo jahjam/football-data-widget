@@ -1,0 +1,40 @@
+.contestant_box {
+    height: auto;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.contestant {
+    font-size: 2rem;
+    color: white;
+    font-weight: 700;
+}
+
+.team{
+    display: flex;
+    gap: 1rem;
+}
+
+.badge {
+    height: 2rem;
+    width: 2rem;
+}
+
+.score {
+    height: 4rem;
+    width: 3rem;
+
+    background-color: var(--light-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.score span {
+    font-size: 2rem;
+}
