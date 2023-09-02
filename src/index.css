@@ -1,5 +1,12 @@
 :root {
+    --primary-color: #222a55;
+    --highlight-color: #c4c440;
 
+    --secondary-color: green;
+    --tertiary-color: #ffc400;
+
+    --dark-color: #141a1f;
+    --light-color: whitesmoke;
 }
 
 *,
