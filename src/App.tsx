@@ -3,12 +3,20 @@ import styles from "./App.module.css";
 import Header from "./feature/Header/Header.tsx";
 import {useRequest} from "./hooks/use-request.tsx";
 import {useEffect, useState} from "react";
+import Nav from "./feature/Nav/Nav.tsx";
+import General from "./feature/General/General.tsx"
 
 function App() {
     const [homeTeam, setHomeTeam] = useState<Team>();
     const [awayTeam, setAwayTeam] = useState<Team>();
     const [curMatch, setCurMatch] = useState<CurrentMatch>();
     const [liveData, setLiveData] = useState<LiveData>();
+
+    const [currentSelect, setCurrentSelect] = useState<string>("general");
+
+    const handleSelect = (selection: string) => {
+        setCurrentSelect(selection);
+    }
 
     const {sendRequest, isLoading, isError} = useRequest();
 
@@ -45,6 +53,8 @@ function App() {
                 :
                 <main className={styles.container}>
                     <Header awayTeam={awayTeam} homeTeam={homeTeam} curMatch={curMatch} liveData={liveData}/>
+                    <Nav handleSelect={handleSelect}/>
+                    {currentSelect.toLowerCase() === "general" && <General homeTeam={homeTeam} awayTeam={awayTeam}/>}
                 </main>
             }
 
