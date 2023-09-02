@@ -10,7 +10,7 @@ export const useRequest = () => {
     const [errorMsg, setErrorMsg] = useState('');
 
     const sendRequest = useCallback(async (
-        fn: (data: any) => void,
+        fn: (data: Match) => void,
     ) => {
         setIsLoading(true);
         setIsError(false);
@@ -22,7 +22,7 @@ export const useRequest = () => {
                 throw data;
             }
 
-            fn(data.data);
+            fn(data.data.match);
         } catch (err) {
             setIsError(true);
             if (axios.isAxiosError(err)) {
