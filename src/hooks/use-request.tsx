@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useCallback, useState} from 'react';
 
 import axios from 'axios';
 
@@ -9,7 +9,7 @@ export const useRequest = () => {
     const [isError, setIsError] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
 
-    const sendRequest = async (
+    const sendRequest = useCallback(async (
         fn: (data: any) => void,
     ) => {
         setIsLoading(true);
@@ -33,7 +33,7 @@ export const useRequest = () => {
         }
 
         setIsLoading(false);
-    };
+    }, []);
 
     const resetError = () => {
         setIsError(false);
