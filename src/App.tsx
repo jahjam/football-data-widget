@@ -5,6 +5,7 @@ import {useRequest} from "./hooks/use-request.tsx";
 import {useEffect, useState} from "react";
 import Nav from "./feature/Nav/Nav.tsx";
 import General from "./feature/General/General.tsx"
+import Overview from "./feature/Overview/Overview.tsx";
 
 function App() {
     const [homeTeam, setHomeTeam] = useState<Team>();
@@ -46,7 +47,7 @@ function App() {
 
     return (
         <>
-            {isLoading &&  <span>Loading...</span>}
+            {isLoading && <span>Loading...</span>}
 
             {isError ?
                 <span>Something went wrong!</span>
@@ -54,7 +55,10 @@ function App() {
                 <main className={styles.container}>
                     <Header awayTeam={awayTeam} homeTeam={homeTeam} curMatch={curMatch} liveData={liveData}/>
                     <Nav handleSelect={handleSelect}/>
-                    {currentSelect.toLowerCase() === "general" && <General homeTeam={homeTeam} awayTeam={awayTeam}/>}
+                    {currentSelect.toLowerCase() === "general" &&
+                        <General homeTeam={homeTeam} awayTeam={awayTeam} liveData={liveData}/>}
+                    {currentSelect.toLowerCase() === "overview" &&
+                        <Overview homeTeam={homeTeam} awayTeam={awayTeam} liveData={liveData}/>}
                 </main>
             }
 
