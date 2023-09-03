@@ -1,5 +1,5 @@
 .container {
-    height: 60rem;
+    height: auto;
     width: 45rem;
 
     background-color: var(--primary-color);
