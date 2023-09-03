@@ -8,7 +8,6 @@ type Props = {
 }
 
 function Overview(props: Props) {
-
     const homeTeamScorers = props.liveData?.goal.filter(player => player.contestantId === props.homeTeam?.contestant?.id);
     const awayTeamScorers = props.liveData?.goal.filter(player => player.contestantId === props.awayTeam?.contestant?.id);
     const homeTeamYellowCards = props.liveData?.card.filter(player => player.contestantId === props.homeTeam?.contestant?.id && player.type === "YC");
@@ -22,10 +21,12 @@ function Overview(props: Props) {
                 <span>Goals</span>
                 <div>
                     <div>
-                        {homeTeamScorers && homeTeamScorers.map((player, i) => <span key={i}>{player.scorerName}</span>)}
+                        {homeTeamScorers && homeTeamScorers.map((player, i) => <span
+                            key={i}>{player.scorerName}</span>)}
                     </div>
                     <div>
-                        {awayTeamScorers && awayTeamScorers.map((player, i) => <span key={i}>{player.scorerName}</span>)}
+                        {awayTeamScorers && awayTeamScorers.map((player, i) => <span
+                            key={i}>{player.scorerName}</span>)}
                     </div>
                 </div>
             </div>
@@ -34,10 +35,12 @@ function Overview(props: Props) {
                 <span>Yellow Cards</span>
                 <div>
                     <div>
-                        {homeTeamYellowCards && homeTeamYellowCards.map((player, i) => <span key={i}>{player.playerName}</span>)}
+                        {homeTeamYellowCards && homeTeamYellowCards.map((player, i) => <span
+                            key={i}>{player.playerName}</span>)}
                     </div>
                     <div>
-                        {awayTeamYellowCards && awayTeamYellowCards.map((player, i) => <span key={i}>{player.playerName}</span>)}
+                        {awayTeamYellowCards && awayTeamYellowCards.map((player, i) => <span
+                            key={i}>{player.playerName}</span>)}
                     </div>
                 </div>
             </div>
@@ -46,10 +49,12 @@ function Overview(props: Props) {
                 <span>Red Cards</span>
                 <div>
                     <div>
-                        {homeTeamRedCards && homeTeamRedCards.map((player, i) => <span key={i}>{player.playerName}</span>)}
+                        {homeTeamRedCards && homeTeamRedCards.map((player, i) => <span
+                            key={i}>{player.playerName}</span>)}
                     </div>
                     <div>
-                        {awayTeamRedCards && awayTeamRedCards.map((player, i) => <span key={i}>{player.playerName}</span>)}
+                        {awayTeamRedCards && awayTeamRedCards.map((player, i) => <span
+                            key={i}>{player.playerName}</span>)}
                     </div>
                 </div>
             </div>
