@@ -56,7 +56,7 @@ function App() {
                     <Header awayTeam={awayTeam} homeTeam={homeTeam} curMatch={curMatch} liveData={liveData}/>
                     <Nav handleSelect={handleSelect}/>
                     {currentSelect.toLowerCase() === "general" &&
-                        <General homeTeam={homeTeam} awayTeam={awayTeam} liveData={liveData}/>}
+                        <General homeTeam={homeTeam} awayTeam={awayTeam}/>}
                     {currentSelect.toLowerCase() === "overview" &&
                         <Overview homeTeam={homeTeam} awayTeam={awayTeam} liveData={liveData}/>}
                 </main>
