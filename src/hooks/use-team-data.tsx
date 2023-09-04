@@ -11,7 +11,7 @@ export const useTeamData = () => {
 
     const {sendRequest, isLoading, isError} = useRequest();
 
-    // None of the iterations in here are very performant at all and with more time I would look to optimise these
+    // None of the iterations in here are very performant at all and with more time I would look to optimise these much more
     useEffect(() => {
         const res = (data: Match) => {
             if (!data) return;
@@ -19,8 +19,24 @@ export const useTeamData = () => {
             // keeping all home / away team data separate in case need to use individual team data separately from one another in future
             const homeTeam: Contestant | undefined = data.contestant.find((team) => team.position === "home");
             const awayTeam: Contestant | undefined = data.contestant.find((team) => team.position === "away");
-            const homeTeamPlayers = [...data.liveData.lineups.home.first11, ...data.liveData.lineups.home.subs];
-            const awayTeamPlayers = [...data.liveData.lineups.away.first11, ...data.liveData.lineups.away.subs];
+
+            const homeFirst11AndSubs: (First11 | Sub)[] = [
+                ...data.liveData.lineups.home.first11.map(player => {
+                    return {...player, teamName: data.liveData.lineups.home.teamName}
+                }), ...[...data.liveData.lineups.home.first11.map(player => {
+                    return {...player, teamName: data.liveData.lineups.home.teamName}
+                })]
+            ];
+            const awayFirst11AndSubs: (First11 | Sub)[] = [
+                ...data.liveData.lineups.away.first11.map(player => {
+                    return {...player, teamName: data.liveData.lineups.away.teamName}
+                }), ...[...data.liveData.lineups.away.first11.map(player => {
+                    return {...player, teamName: data.liveData.lineups.away.teamName}
+                })]
+            ];
+
+            const homeTeamPlayers = [...homeFirst11AndSubs];
+            const awayTeamPlayers = [...awayFirst11AndSubs];
 
             const homeTeamScorers = data.liveData?.goal.filter(player => player.contestantId === homeTeam?.id);
             const awayTeamScorers = data.liveData?.goal.filter(player => player.contestantId === awayTeam?.id);
