@@ -16,7 +16,7 @@ function Players(props: Props) {
 
     return (
         <div className={styles.container}>
-            <span>Players</span>
+            <span className={styles.title}>Players</span>
 
             <div className={styles.buttons}>
                 <button className={styles.button} type="button" onClick={handleOnClick}>Shots (On Target)</button>
