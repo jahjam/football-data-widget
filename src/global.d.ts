@@ -30,6 +30,14 @@ declare type Team = {
     redCards: Card[]
 }
 
+declare type TeamData = {
+    homeTeamPlayers: (First11 | Sub)[],
+    awayTeamPlayers: (First11 | Sub)[],
+    combinedTotalShotsPerAllPlayers: (First11 | Sub)[],
+    combinedTotalPassers: (First11 | Sub)[],
+    combinedTotalTacklers: (First11 | Sub)[],
+}
+
 declare type CurrentMatch = {
     match: Competition,
 }

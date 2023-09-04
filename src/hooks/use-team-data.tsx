@@ -2,14 +2,6 @@ import {useEffect, useState} from 'react';
 
 import {useRequest} from "./use-request.tsx";
 
-type TeamData = {
-    homeTeamPlayers: (First11 | Sub)[],
-    awayTeamPlayers: (First11 | Sub)[],
-    combinedTotalShotsPerAllPlayers: (First11 | Sub)[],
-    combinedTotalPassers: (First11 | Sub)[],
-    combinedTotalTacklers: (First11 | Sub)[],
-}
-
 export const useTeamData = () => {
     const [homeTeam, setHomeTeam] = useState<Team>();
     const [awayTeam, setAwayTeam] = useState<Team>();
