@@ -8,56 +8,53 @@ type Props = {
 }
 
 function Overview(props: Props) {
-    const homeTeamScorers = props.liveData?.goal.filter(player => player.contestantId === props.homeTeam?.contestant?.id);
-    const awayTeamScorers = props.liveData?.goal.filter(player => player.contestantId === props.awayTeam?.contestant?.id);
-    const homeTeamYellowCards = props.liveData?.card.filter(player => player.contestantId === props.homeTeam?.contestant?.id && player.type === "YC");
-    const awayTeamYellowCards = props.liveData?.card.filter(player => player.contestantId === props.awayTeam?.contestant?.id && player.type === "YC");
-    const homeTeamRedCards = props.liveData?.card.filter(player => player.contestantId === props.homeTeam?.contestant?.id && (player.type === "Y2C" || player.type === "RC"));
-    const awayTeamRedCards = props.liveData?.card.filter(player => player.contestantId === props.awayTeam?.contestant?.id && player.type === "Y2C" || player.type === "RC");
-
     return (
         <div className={styles.container}>
-            <div className={styles.elements}>
-                <span>Goals</span>
-                <div>
-                    <div>
-                        {homeTeamScorers && homeTeamScorers.map((player, i) => <span
-                            key={i}>{player.scorerName}</span>)}
+            {props.homeTeam && props.awayTeam &&
+                <>
+                    <div className={styles.elements}>
+                        <span>Goals</span>
+                        <div>
+                            <div>
+                                {props.homeTeam.scorers.map((player, i) => <span
+                                    key={i}>{player.scorerName}</span>)}
+                            </div>
+                            <div>
+                                {props.awayTeam?.scorers.map((player, i) => <span
+                                    key={i}>{player.scorerName}</span>)}
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        {awayTeamScorers && awayTeamScorers.map((player, i) => <span
-                            key={i}>{player.scorerName}</span>)}
-                    </div>
-                </div>
-            </div>
 
-            <div className={styles.elements}>
-                <span>Yellow Cards</span>
-                <div>
-                    <div>
-                        {homeTeamYellowCards && homeTeamYellowCards.map((player, i) => <span
-                            key={i}>{player.playerName}</span>)}
+                    <div className={styles.elements}>
+                        <span>Yellow Cards</span>
+                        <div>
+                            <div>
+                                {props.homeTeam.yellowCards.map((player, i) => <span
+                                    key={i}>{player.playerName}</span>)}
+                            </div>
+                            <div>
+                                {props.awayTeam.yellowCards.map((player, i) => <span
+                                    key={i}>{player.playerName}</span>)}
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        {awayTeamYellowCards && awayTeamYellowCards.map((player, i) => <span
-                            key={i}>{player.playerName}</span>)}
-                    </div>
-                </div>
-            </div>
 
-            <div className={styles.elements}>
-                <span>Red Cards</span>
-                <div>
-                    <div>
-                        {homeTeamRedCards && homeTeamRedCards.map((player, i) => <span
-                            key={i}>{player.playerName}</span>)}
+                    <div className={styles.elements}>
+                        <span>Red Cards</span>
+                        <div>
+                            <div>
+                                {props.homeTeam.redCards.map((player, i) => <span
+                                    key={i}>{player.playerName}</span>)}
+                            </div>
+                            <div>
+                                {props.awayTeam.redCards.map((player, i) => <span
+                                    key={i}>{player.playerName}</span>)}
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        {awayTeamRedCards && awayTeamRedCards.map((player, i) => <span
-                            key={i}>{player.playerName}</span>)}
-                    </div>
-                </div>
-            </div>
+                </>
+            }
         </div>
     )
 }

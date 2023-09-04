@@ -25,6 +25,9 @@ declare type Team = {
     contestant: Contestant | undefined,
     stats: Stat[],
     goals: number,
+    scorers: Goal[],
+    yellowCards: Card[],
+    redCards: Card[]
 }
 
 declare type CurrentMatch = {
