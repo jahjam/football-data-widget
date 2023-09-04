@@ -42,6 +42,38 @@ function Players(props: Props) {
                                 </div>)
                         })}
                     </>}
+                {selection === "Passes" &&
+                    <>
+                        <span className={styles.stats_title}>Passes</span>
+                        {props.teamData?.combinedTotalPassers.map((player, i) => {
+                            return (
+                                <div className={styles.player_stat} key={i}>
+                                    <div className={styles.player_details}>
+                                        <span>{player.name}</span>
+                                        <span>{player.teamName}</span>
+                                    </div>
+                                    <div>
+                                        <span>{player.stats.passes}</span>
+                                    </div>
+                                </div>)
+                        })}
+                    </>}
+                {selection === "Tackles" &&
+                    <>
+                        <span className={styles.stats_title}>Tackles</span>
+                        {props.teamData?.combinedTotalTacklers.map((player, i) => {
+                            return (
+                                <div className={styles.player_stat} key={i}>
+                                    <div className={styles.player_details}>
+                                        <span>{player.name}</span>
+                                        <span>{player.teamName}</span>
+                                    </div>
+                                    <div>
+                                        <span>{player.stats.tackles}</span>
+                                    </div>
+                                </div>)
+                        })}
+                    </>}
             </div>
         </div>
     )
