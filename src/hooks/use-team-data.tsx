@@ -62,9 +62,9 @@ export const useTeamData = () => {
             const totalAwayTeamTacklers = awayTeamPlayers.filter(player => {
                 return player.stats.tackles > 0;
             });
-            const combinedTotalShotsPerAllPlayers = [...totalHomeTeamShots, ...totalAwayTeamShots].sort((a, b) => a.stats.shotsOnTarget < b.stats.shotsOnTarget);
-            const combinedTotalPassers = [...totalHomeTeamPassers, ...totalAwayTeamPassers].sort((a, b) => a.stats.passes < b.stats.passes);
-            const combinedTotalTacklers = [...totalHomeTeamTacklers, ...totalAwayTeamTacklers].sort((a, b) => a.stats.tackles < b.stats.tackles);
+            const combinedTotalShotsPerAllPlayers = [...totalHomeTeamShots, ...totalAwayTeamShots].sort((a, b) => b.stats.shotsOnTarget - a.stats.shotsOnTarget);
+            const combinedTotalPassers = [...totalHomeTeamPassers, ...totalAwayTeamPassers].sort((a, b) => b.stats.passes - a.stats.passes);
+            const combinedTotalTacklers = [...totalHomeTeamTacklers, ...totalAwayTeamTacklers].sort((a, b) => b.stats.tackles - a.stats.tackles);
 
             setHomeTeam({
                 contestant: homeTeam,
