@@ -6,6 +6,7 @@ import Nav from "./feature/Nav/Nav.tsx";
 import General from "./feature/General/General.tsx"
 import Overview from "./feature/Overview/Overview.tsx";
 import {useTeamData} from "./hooks/use-team-data.tsx";
+import Players from "./feature/Players/Players.tsx";
 
 function App() {
     const {
@@ -13,6 +14,7 @@ function App() {
         awayTeam,
         curMatch,
         liveData,
+        teamData,
         isLoading,
         isError
     } = useTeamData();
@@ -37,9 +39,9 @@ function App() {
                         <General homeTeam={homeTeam} awayTeam={awayTeam}/>}
                     {currentSelect.toLowerCase() === "overview" &&
                         <Overview homeTeam={homeTeam} awayTeam={awayTeam} liveData={liveData}/>}
+                    {currentSelect.toLowerCase() === "players" && <Players teamData={teamData}/>}
                 </main>
             }
-
         </>
     )
 }
