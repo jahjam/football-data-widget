@@ -1,0 +1,74 @@
+.container {
+    height: auto;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    padding: 2rem;
+}
+
+.buttons {
+    width: 80%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 2rem;
+
+    background-color: var(--dark-color);
+
+    color: var(--light-color);
+
+    cursor: pointer;
+
+    font-family: inherit;
+}
+
+.stats_container {
+    width: 100%;
+    height: auto;
+
+    color: var(--light-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats_title{
+    padding-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.player_stat {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 0.2rem solid var(--dark-color);
+
+    padding: 0.5rem;
+}
+
+
+.player_details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+}
