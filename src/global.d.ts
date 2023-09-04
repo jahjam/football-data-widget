@@ -112,6 +112,7 @@ declare interface First11 {
     formationPlace: string;
     stats:          Stats;
     captain?:       string;
+    teamName?: string;
 }
 
 declare enum First11Position {
@@ -142,6 +143,7 @@ declare interface Sub {
     position:    SubPosition;
     shirtNumber: number;
     stats:       Stats;
+    teamName?: string;
 }
 
 declare enum SubPosition {
