@@ -23,14 +23,14 @@ export const useTeamData = () => {
             const homeFirst11AndSubs: (First11 | Sub)[] = [
                 ...data.liveData.lineups.home.first11.map(player => {
                     return {...player, teamName: data.liveData.lineups.home.teamName}
-                }), ...[...data.liveData.lineups.home.first11.map(player => {
+                }), ...[...data.liveData.lineups.home.subs.map(player => {
                     return {...player, teamName: data.liveData.lineups.home.teamName}
                 })]
             ];
             const awayFirst11AndSubs: (First11 | Sub)[] = [
                 ...data.liveData.lineups.away.first11.map(player => {
                     return {...player, teamName: data.liveData.lineups.away.teamName}
-                }), ...[...data.liveData.lineups.away.first11.map(player => {
+                }), ...[...data.liveData.lineups.away.subs.map(player => {
                     return {...player, teamName: data.liveData.lineups.away.teamName}
                 })]
             ];
