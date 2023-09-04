@@ -28,6 +28,7 @@ body {
     font-family: 'roboto', sans-serif;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+
+    margin-top: 2rem;
 }
